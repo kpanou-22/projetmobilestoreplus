@@ -1,7 +1,20 @@
 import SectionTitle from "./SectionTitle";
 import { useLanguage } from "@/contexts/LanguageContext";
+import iphoneImg from "@/assets/iphone.jpg";
+import macbookImg from "@/assets/macbook.jpg";
+import airpodsImg from "@/assets/airpods.jpg";
+import samsungImg from "@/assets/samsung.jpg";
+import tabletteImg from "@/assets/tablette.jpg";
+import jblImg from "@/assets/jbl.jpg";
 
-const products = ["iPhone", "MacBook", "AirPods Max", "Samsung", "Tablette", "Enceinte JBL"];
+const products = [
+  { name: "iPhone", img: iphoneImg },
+  { name: "MacBook", img: macbookImg },
+  { name: "AirPods Max", img: airpodsImg },
+  { name: "Samsung", img: samsungImg },
+  { name: "Tablette", img: tabletteImg },
+  { name: "Enceinte JBL", img: jblImg },
+];
 
 const Products = () => {
   const { t } = useLanguage();
@@ -13,11 +26,11 @@ const Products = () => {
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           {products.map((p, i) => (
             <div key={i} className="bg-card border border-border rounded-lg overflow-hidden shadow-sm">
-              <div className="bg-muted h-36 flex items-center justify-center">
-                <i className="fa-solid fa-image text-muted-foreground text-3xl" />
+              <div className="h-36 overflow-hidden">
+                <img src={p.img} alt={p.name} className="w-full h-full object-cover" />
               </div>
               <div className="p-3 text-center">
-                <span className="font-semibold text-sm text-foreground">{p}</span>
+                <span className="font-semibold text-sm text-foreground">{p.name}</span>
               </div>
             </div>
           ))}

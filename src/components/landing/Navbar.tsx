@@ -1,5 +1,6 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useState } from "react";
+import logo from "@/assets/logo.jpeg";
 
 const Navbar = () => {
   const { lang, setLang, t } = useLanguage();
@@ -16,8 +17,8 @@ const Navbar = () => {
   return (
     <nav className="bg-secondary text-secondary-foreground sticky top-0 z-50">
       <div className="container mx-auto flex items-center justify-between py-3">
-        <a href="#hero" className="font-bold text-lg tracking-tight">
-          <i className="fa-solid fa-mobile-screen-button mr-2" />
+        <a href="#hero" className="font-bold text-lg tracking-tight flex items-center gap-2">
+          <img src={logo} alt="Mobile Store Plus" className="h-8 w-8 rounded-lg object-cover" />
           Mobile Store Plus
         </a>
 
