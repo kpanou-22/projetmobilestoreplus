@@ -62,7 +62,7 @@ const translations = {
     messageLabel: "Message",
     sendBtn: "Envoyer le message",
     whatsappChatBtn: "Discuter sur WhatsApp maintenant",
-    requestOptions: ["Réparation", "Achat", "Troc", "Accessoires", "Autre"],
+    requestOptions: ["Réparation", "Achat", "Vente / Troc", "Accessoires", "Ordinateurs", "Autre demande"],
     // CTA
     ctaTitle: "Venez nous rendre visite !",
     // Footer
@@ -127,7 +127,7 @@ const translations = {
     messageLabel: "Message",
     sendBtn: "Send message",
     whatsappChatBtn: "Chat on WhatsApp now",
-    requestOptions: ["Repair", "Purchase", "Trade", "Accessories", "Other"],
+    requestOptions: ["Repair", "Purchase", "Sale / Trade", "Accessories", "Computers", "Other request"],
     ctaTitle: "Come visit us!",
     copyright: "© 2025 Mobile Store Plus · Abomey-Calavi, Benin",
     legal: "IFU: 0202590708733 | RCCM: 0000000000",

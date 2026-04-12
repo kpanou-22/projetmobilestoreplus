@@ -1,5 +1,7 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 
+const WHATSAPP_URL = "https://wa.me/22901437999?text=Bonjour%20Mobile%20Store%20Plus%2C%20je%20souhaite%20avoir%20des%20informations%20sur%20vos%20produits%20et%20services.";
+
 const Footer = () => {
   const { t } = useLanguage();
 
@@ -22,7 +24,7 @@ const Footer = () => {
         </div>
         <div>
           <a
-            href="https://wa.me/22901437999"
+            href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center w-10 h-10 bg-whatsapp rounded-full text-whatsapp-foreground hover:opacity-90 transition-opacity"
