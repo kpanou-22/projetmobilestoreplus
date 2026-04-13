@@ -1,62 +1,95 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import SectionTitle from "./SectionTitle";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
+import { Star, Quote } from "lucide-react";
 
 const Testimonials = () => {
   const { t } = useLanguage();
   const scrollRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
 
   const handleScroll = () => {
     if (!scrollRef.current) return;
     const scrollLeft = scrollRef.current.scrollLeft;
-    const cardWidth = scrollRef.current.firstElementChild?.clientWidth || 280;
-    setActive(Math.round(scrollLeft / (cardWidth + 16)));
+    const cardWidth = scrollRef.current.firstElementChild?.clientWidth || 320;
+    setActive(Math.round(scrollLeft / (cardWidth + 24)));
   };
 
   const scrollTo = (idx: number) => {
     if (!scrollRef.current) return;
-    const cardWidth = scrollRef.current.firstElementChild?.clientWidth || 280;
-    scrollRef.current.scrollTo({ left: idx * (cardWidth + 16), behavior: "smooth" });
+    const cardWidth = scrollRef.current.firstElementChild?.clientWidth || 320;
+    scrollRef.current.scrollTo({ left: idx * (cardWidth + 24), behavior: "smooth" });
   };
 
+  useEffect(() => {
+    if (isHovered) return;
+    const interval = setInterval(() => {
+      const nextIdx = (active + 1) % t.testimonials.length;
+      scrollTo(nextIdx);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [active, isHovered, t.testimonials.length]);
+
   return (
-    <section className="py-14 px-4" style={{ backgroundColor: "hsl(var(--light-bg))" }}>
-      <div className="container mx-auto max-w-4xl">
+    <section id="testimonials" className="py-24 px-4 bg-white relative overflow-hidden">
+      <div className="container mx-auto max-w-6xl">
         <SectionTitle>{t.testimonialsTitle}</SectionTitle>
         <div
           ref={scrollRef}
           onScroll={handleScroll}
-          className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide"
-          style={{ scrollbarWidth: "none" }}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          className="flex gap-6 overflow-x-auto pb-12 snap-x snap-mandatory scrollbar-hide px-4 mask-fade-edges active:cursor-grabbing cursor-grab select-none"
+          style={{ 
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
+            WebkitOverflowScrolling: "touch"
+          }}
         >
           {t.testimonials.map((tm, i) => (
             <div
               key={i}
-              className="snap-start shrink-0 w-72 bg-card border border-border rounded-lg p-5 shadow-sm"
+              className="snap-center shrink-0 w-[320px] bg-white border border-border/50 rounded-[2.5rem] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.03)] hover:shadow-[0_15px_50px_rgba(0,0,0,0.08)] transition-all duration-500 relative group"
             >
-              <div className="flex gap-0.5 mb-3">
+              <div className="absolute top-6 right-8 text-primary/5 group-hover:text-primary/10 transition-colors">
+                <Quote className="w-12 h-12 fill-current" />
+              </div>
+              
+              <div className="flex gap-1 mb-6">
                 {[...Array(5)].map((_, j) => (
-                  <i key={j} className="fa-solid fa-star text-star" style={{ fontSize: "0.9rem" }} />
+                  <Star key={j} className="w-4 h-4 fill-star text-star" />
                 ))}
               </div>
-              <p className="italic text-sm text-muted-foreground mb-4">"{tm.quote}"</p>
-              <div className="flex items-center justify-between">
-                <span className="font-semibold text-sm text-foreground">{tm.name}</span>
-                <span className="text-xs bg-primary/10 text-primary px-2 py-0.5 rounded-full font-medium">
-                  {tm.tag}
-                </span>
+              
+              <p className="text-muted-foreground mb-8 text-base leading-relaxed italic relative z-10 min-h-[100px]">
+                "{tm.quote}"
+              </p>
+              
+              <div className="flex items-center justify-between border-t border-border/50 pt-6">
+                <div className="flex flex-col">
+                  <span className="font-black text-foreground">{tm.name}</span>
+                  <span className="text-[10px] uppercase tracking-widest text-primary font-bold">
+                    {tm.tag}
+                  </span>
+                </div>
+                <div className="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center text-primary font-black text-xs group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                  {tm.name.charAt(0)}
+                </div>
               </div>
             </div>
           ))}
         </div>
+        
         {/* Dots */}
-        <div className="flex justify-center gap-2 mt-4">
+        <div className="flex justify-center gap-3 mt-4">
           {t.testimonials.map((_, i) => (
             <button
               key={i}
               onClick={() => scrollTo(i)}
-              className={`w-2 h-2 rounded-full transition-colors ${i === active ? "bg-primary" : "bg-primary/30"}`}
+              className={`h-2 rounded-full transition-all duration-500 ${
+                i === active ? "w-10 bg-primary shadow-lg shadow-primary/20" : "w-3 bg-primary/20 hover:bg-primary/40"
+              }`}
             />
           ))}
         </div>

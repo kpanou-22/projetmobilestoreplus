@@ -12,7 +12,8 @@ const translations = {
     contact: "Contact",
     // Hero
     tagline: "Vente · Achat · Troc · Réparation — Smartphones, MacBooks, Tablettes & Accessoires",
-    callBtn: "01 43 79 99 99",
+    callBtn: "+229 01 43 79 99 99",
+    email: "mobilestoreplus20@gmail.com",
     whatsappBtn: "Commander sur WhatsApp",
     videoLabel: "Présentation de la boutique",
     // Stats
@@ -53,7 +54,7 @@ const translations = {
     testimonialsTitle: "Ce que disent nos clients",
     // Location
     locationTitle: "Nous trouver",
-    address: "Abomey-Calavi, Carrefour Parrana, Von à gauche, 4ème boutique",
+    address: "Calavi Carrefour Parana",
     // Contact
     contactTitle: "Contactez-nous",
     nameLabel: "Nom",
@@ -66,7 +67,7 @@ const translations = {
     // CTA
     ctaTitle: "Venez nous rendre visite !",
     // Footer
-    copyright: "© 2025 Mobile Store Plus · Abomey-Calavi, Bénin",
+    copyright: "© 2025 Mobile Store Plus · Calavi Carrefour Parana",
     legal: "IFU : 0202590708733 | RCCM : 0000000000",
     // Testimonial data
     testimonials: [
@@ -85,7 +86,8 @@ const translations = {
     offers: "Offers",
     contact: "Contact",
     tagline: "Sales · Purchase · Trade · Repair — Smartphones, MacBooks, Tablets & Accessories",
-    callBtn: "01 43 79 99 99",
+    callBtn: "+229 01 43 79 99 99",
+    email: "mobilestoreplus20@gmail.com",
     whatsappBtn: "Order on WhatsApp",
     videoLabel: "Store presentation",
     stat1: "+5 years of experience",
@@ -119,7 +121,7 @@ const translations = {
     why4Desc: "Often repaired the same day",
     testimonialsTitle: "What our clients say",
     locationTitle: "Find us",
-    address: "Abomey-Calavi, Carrefour Parrana, left at Von, 4th shop",
+    address: "Calavi Carrefour Parana",
     contactTitle: "Contact us",
     nameLabel: "Name",
     phoneLabel: "Phone",
@@ -129,7 +131,7 @@ const translations = {
     whatsappChatBtn: "Chat on WhatsApp now",
     requestOptions: ["Repair", "Purchase", "Sale / Trade", "Accessories", "Computers", "Other request"],
     ctaTitle: "Come visit us!",
-    copyright: "© 2025 Mobile Store Plus · Abomey-Calavi, Benin",
+    copyright: "© 2025 Mobile Store Plus · Calavi Carrefour Parana",
     legal: "IFU: 0202590708733 | RCCM: 0000000000",
     testimonials: [
       { quote: "Excellent service! My iPhone was repaired in less than 2 hours. Highly recommend.", name: "Koffi A.", tag: "Repair" },
